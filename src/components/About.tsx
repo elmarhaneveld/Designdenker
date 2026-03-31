@@ -11,34 +11,34 @@ export default function About() {
             About
           </span>
           <h2 className="font-serif text-headline mt-4">
-            Where business meets
+            Business, craft,
             <br />
-            <span className="italic">design &amp; people</span>
+            <span className="italic">systems &amp; people</span>
           </h2>
         </div>
 
         {/* Right column */}
         <div className="md:col-span-7 md:col-start-6 space-y-8">
           <p className="text-lg md:text-xl leading-relaxed">
-            The best design doesn&apos;t just look good — it serves a purpose.
-            For over 20 years, I&apos;ve worked at the intersection of business
-            strategy, design craft, and human needs. I translate what a company
-            wants to achieve into experiences people genuinely connect with.
+            Great design doesn&apos;t happen in isolation. For over 20 years,
+            I&apos;ve worked across four dimensions: understanding the
+            <strong> business</strong>, refining the <strong>craft</strong>,
+            scaling through <strong>systems</strong>, and always centering
+            the <strong>people</strong> who use what we make.
           </p>
 
           <p className="text-muted leading-relaxed">
             As an art director and design system specialist from the Netherlands,
-            I focus on bridging disciplines. I speak the language of developers,
-            understand the goals of stakeholders, and advocate for the people who
-            actually use the product. My strength is bringing these worlds
-            together — pragmatically, with clarity and craft.
+            I bridge the gap between strategy and execution. I translate business
+            goals into design direction, build token-driven systems that scale
+            across teams, and keep the craft sharp — from concept to pixel.
           </p>
 
           <p className="text-muted leading-relaxed">
-            Whether it&apos;s building scalable design systems powered by tokens,
-            shaping art direction for global brands, or guiding teams toward
-            more collaborative ways of working — I believe great outcomes happen
-            when business, design, and people are aligned.
+            What sets my work apart is the ability to connect disciplines.
+            I speak the language of developers, understand the priorities of
+            stakeholders, and advocate for the end user. The best outcomes
+            happen when business, craft, systems, and people move together.
           </p>
 
           {/* Personal touch */}
