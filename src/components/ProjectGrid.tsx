@@ -7,7 +7,7 @@ interface Project {
   span?: "full" | "half";
 }
 
-const projects: Project[] = [
+const clientProjects: Project[] = [
   {
     title: "Polestar",
     category: "Design System",
@@ -53,6 +53,9 @@ const projects: Project[] = [
     color: "bg-[#f2f5f0]",
     span: "half",
   },
+];
+
+const personalVentures: Project[] = [
   {
     title: "Vrank",
     category: "Product Design",
@@ -82,58 +85,81 @@ const projects: Project[] = [
   },
 ];
 
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article
+      className={`project-card group ${
+        project.span === "full" ? "md:col-span-2" : ""
+      }`}
+    >
+      {/* Image container */}
+      <div
+        className={`${project.color} rounded-lg overflow-hidden aspect-[16/9] ${
+          project.span === "full" ? "md:aspect-[21/9]" : ""
+        } relative flex items-center justify-center`}
+      >
+        {/* Placeholder — replace with actual images */}
+        <div className="text-center p-12">
+          <span className="font-serif text-headline text-foreground/20">
+            {project.title}
+          </span>
+        </div>
+      </div>
+
+      {/* Info */}
+      <div className="mt-5 flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+        <div>
+          <span className="text-xs tracking-[0.15em] uppercase text-muted">
+            {project.category}
+          </span>
+          <h3 className="font-serif text-2xl md:text-3xl mt-1">
+            {project.title}
+          </h3>
+        </div>
+        <p className="text-sm text-muted max-w-md leading-relaxed md:text-right">
+          {project.description}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export default function ProjectGrid() {
   return (
     <section id="work" className="px-6 md:px-12 max-w-magazine mx-auto py-24">
-      {/* Section header */}
+      {/* Client work header */}
       <div className="flex items-center gap-6 mb-16">
         <span className="text-sm tracking-[0.2em] uppercase text-muted">
           Selected Work
         </span>
         <div className="flex-1 hr-magazine border-t" />
         <span className="text-sm text-muted">
-          {projects.length} Projects
+          {clientProjects.length} Projects
         </span>
       </div>
 
-      {/* Grid */}
+      {/* Client projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className={`project-card group ${
-              project.span === "full" ? "md:col-span-2" : ""
-            }`}
-          >
-            {/* Image container */}
-            <div
-              className={`${project.color} rounded-lg overflow-hidden aspect-[16/9] ${
-                project.span === "full" ? "md:aspect-[21/9]" : ""
-              } relative flex items-center justify-center`}
-            >
-              {/* Placeholder — replace with actual images */}
-              <div className="text-center p-12">
-                <span className="font-serif text-headline text-foreground/20">
-                  {project.title}
-                </span>
-              </div>
-            </div>
+        {clientProjects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </div>
 
-            {/* Info */}
-            <div className="mt-5 flex flex-col md:flex-row md:items-start md:justify-between gap-2">
-              <div>
-                <span className="text-xs tracking-[0.15em] uppercase text-muted">
-                  {project.category}
-                </span>
-                <h3 className="font-serif text-2xl md:text-3xl mt-1">
-                  {project.title}
-                </h3>
-              </div>
-              <p className="text-sm text-muted max-w-md leading-relaxed md:text-right">
-                {project.description}
-              </p>
-            </div>
-          </article>
+      {/* Personal ventures header */}
+      <div className="flex items-center gap-6 mb-16 mt-32">
+        <span className="text-sm tracking-[0.2em] uppercase text-muted">
+          Personal Ventures
+        </span>
+        <div className="flex-1 hr-magazine border-t" />
+        <span className="text-sm text-muted">
+          {personalVentures.length} Projects
+        </span>
+      </div>
+
+      {/* Personal ventures grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {personalVentures.map((project) => (
+          <ProjectCard key={project.title} project={project} />
         ))}
       </div>
     </section>
