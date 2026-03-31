@@ -9,9 +9,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <nav className="max-w-magazine mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-        <Link href="/" className="font-serif text-xl tracking-tight">
-          Elmar Haneveld
-        </Link>
+        <Link href="/" className="font-serif text-xl tracking-tight" />
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-8 text-sm tracking-wide">
