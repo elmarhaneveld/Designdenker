@@ -103,7 +103,7 @@ export default function Hero() {
             const ay = line.anchor.y * 100;
 
             // Angle in degrees for rotating the label
-            let angle = Math.atan2(my - ay, mx - ax) * (180 / Math.PI);
+            const angle = Math.atan2(my - ay, mx - ax) * (180 / Math.PI);
 
             // Place label 20% along the line from the anchor, clamped to stay in view
             const t = 0.18;
