@@ -11,36 +11,34 @@ export default function About() {
             About
           </span>
           <h2 className="font-serif text-headline mt-4">
-            Design is a bridge
+            Where business meets
+            <br />
+            <span className="italic">design &amp; people</span>
           </h2>
         </div>
 
         {/* Right column */}
         <div className="md:col-span-7 md:col-start-6 space-y-8">
-          {/* Photo placeholder */}
-          <div className="aspect-[4/3] bg-[#f5f5f0] rounded-lg flex items-center justify-center mb-12">
-            <span className="text-muted text-sm">Photo placeholder</span>
-          </div>
-
           <p className="text-lg md:text-xl leading-relaxed">
-            I like to see the role of a designer as a bridge between technology
-            and people. For over 20 years, I&apos;ve been shaping digital
-            experiences — adapting through every major technological shift while
-            staying true to what matters: making things that are meaningful.
+            The best design doesn&apos;t just look good — it serves a purpose.
+            For over 20 years, I&apos;ve worked at the intersection of business
+            strategy, design craft, and human needs. I translate what a company
+            wants to achieve into experiences people genuinely connect with.
           </p>
 
           <p className="text-muted leading-relaxed">
-            As an independent design thinker and art director from the
-            Netherlands, I focus on concepts, art direction, and UI/UX design.
-            My work lives at the intersection of design and development, with
-            deep expertise in scaling design systems powered by tokens.
+            As an art director and design system specialist from the Netherlands,
+            I focus on bridging disciplines. I speak the language of developers,
+            understand the goals of stakeholders, and advocate for the people who
+            actually use the product. My strength is bringing these worlds
+            together — pragmatically, with clarity and craft.
           </p>
 
           <p className="text-muted leading-relaxed">
-            I believe in collaboration that bridges disciplines — explaining
-            design concepts to developers, understanding technical constraints,
-            and finding pragmatic solutions that serve both the user and the
-            brand.
+            Whether it&apos;s building scalable design systems powered by tokens,
+            shaping art direction for global brands, or guiding teams toward
+            more collaborative ways of working — I believe great outcomes happen
+            when business, design, and people are aligned.
           </p>
 
           {/* Personal touch */}
