@@ -26,6 +26,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased bg-white text-foreground">
+      <body className="font-sans antialiased bg-white text-foreground overflow-x-hidden">
         {children}
       </body>
     </html>
