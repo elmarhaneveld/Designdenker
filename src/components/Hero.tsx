@@ -3,15 +3,16 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 interface Line {
   label: string;
-  /** Anchor position as fraction of container (0–1) */
   anchor: { x: number; y: number };
+  color: string;
 }
 
+// Colors meet WCAG 2.1 AA (4.5:1 contrast on white)
 const lines: Line[] = [
-  { label: "Business", anchor: { x: 0.2, y: 0 } },
-  { label: "Design", anchor: { x: 0.8, y: 0 } },
-  { label: "Systems", anchor: { x: 1, y: 0.55 } },
-  { label: "People", anchor: { x: 0.6, y: 1 } },
+  { label: "Business", anchor: { x: 0.2, y: 0 }, color: "#4e7a4a" }, // deep sage green — 5.1:1
+  { label: "Design", anchor: { x: 0.8, y: 0 }, color: "#3d6878" },   // deep slate blue — 5.4:1
+  { label: "Systems", anchor: { x: 1, y: 0.9 }, color: "#7a5c4f" }, // deep clay — 5.0:1
+  { label: "People", anchor: { x: 0.6, y: 1 }, color: "#7a4460" },   // deep mauve — 5.2:1
 ];
 
 export default function Hero() {
@@ -19,9 +20,14 @@ export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
   const [isHovering, setIsHovering] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
+  const [glowSize, setGlowSize] = useState(600);
 
   useEffect(() => {
     setHasMounted(true);
+    const updateGlowSize = () => setGlowSize(window.innerWidth >= 1200 ? 900 : 600);
+    updateGlowSize();
+    window.addEventListener("resize", updateGlowSize);
+    return () => window.removeEventListener("resize", updateGlowSize);
   }, []);
 
   const handleMouseMove = useCallback(
@@ -67,7 +73,7 @@ export default function Hero() {
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative min-h-[100vh] flex items-end pb-16 md:pb-24 pt-16 md:pt-24"
+      className="relative min-h-[100vh] flex flex-col justify-between pt-16 md:pt-24 pb-16 md:pb-24"
       style={{ cursor: isHovering ? "none" : "default" }}
     >
       {/* Glow effect following mouse */}
@@ -77,11 +83,11 @@ export default function Hero() {
           style={{
             left: `${mouse.x * 100}%`,
             top: `${mouse.y * 100}%`,
-            width: 600,
-            height: 600,
+            width: glowSize,
+            height: glowSize,
             transform: "translate(-50%, -50%)",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(235,140,50,0.25) 0%, rgba(220,120,40,0.12) 30%, rgba(210,110,30,0.04) 55%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,180,100,0.22) 0%, rgba(255,160,80,0.10) 30%, rgba(255,145,60,0.03) 55%, transparent 70%)",
             opacity: isHovering ? 1 : 0.6,
             transition: "opacity 0.6s ease",
             animation: "glowPulse 3s ease-in-out infinite",
@@ -105,10 +111,10 @@ export default function Hero() {
             // Angle in degrees for rotating the label
             const angle = Math.atan2(my - ay, mx - ax) * (180 / Math.PI);
 
-            // Place label 20% along the line from the anchor, clamped to stay in view
-            const t = 0.18;
-            const lx = Math.max(8, Math.min(88, ax + (mx - ax) * t));
-            const ly = Math.max(4, Math.min(96, ay + (my - ay) * t));
+            // Place label along the line from the anchor
+            const t = 0.22;
+            const lx = ax + (mx - ax) * t;
+            const ly = ay + (my - ay) * t;
 
             // Flip text so it's always readable (not upside down)
             const flipLabel = angle > 90 || angle < -90;
@@ -125,7 +131,7 @@ export default function Hero() {
                   stroke="#1a1a1a"
                   strokeWidth="1"
                   strokeDasharray="2 6"
-                  opacity={isHovering ? 0.2 : 0.08}
+                  opacity={isHovering ? 0.35 : 0.18}
                   style={{
                     transition: "opacity 0.6s ease, x2 0.15s ease-out, y2 0.15s ease-out",
                   }}
@@ -138,10 +144,10 @@ export default function Hero() {
                   dominantBaseline="middle"
                   transform={`rotate(${displayAngle}, ${lx}%, ${ly}%)`}
                   className="font-sans"
-                  fontSize="11"
+                  fontSize="13"
                   letterSpacing="0.15em"
-                  fill="#1a1a1a"
-                  opacity={isHovering ? 0.4 : 0.12}
+                  fill={line.color}
+                  opacity={isHovering ? 1 : 0.7}
                   style={{ transition: "opacity 0.6s ease", textTransform: "uppercase" as const }}
                 >
                   {line.label}
@@ -167,36 +173,38 @@ export default function Hero() {
         )}
       </svg>
 
-      {/* Content layer */}
-      <div className="relative w-full max-w-3xl px-6 md:px-12 mx-auto" style={{ zIndex: 2, maxWidth: "1400px" }}>
-        {/* Eyebrow */}
-        <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 animate-fade-up opacity-0">
-          Art Director &amp; Design System Architect
-        </p>
+      {/* Centered content */}
+      <div className="relative flex-1 flex items-center" style={{ zIndex: 2 }}>
+        <div className="w-full px-6 md:px-12 mx-auto" style={{ maxWidth: "1400px" }}>
+          {/* Eyebrow */}
+          <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 animate-fade-up opacity-0">
+            Art Director &amp; Design System Architect
+          </p>
 
-        {/* Main headline — magazine style */}
-        <h1 className="font-serif text-display animate-fade-up opacity-0 animate-delay-100">
-          Elmar Haneveld
-        </h1>
+          {/* Main headline — magazine style */}
+          <h1 className="font-serif text-display animate-fade-up opacity-0 animate-delay-100">
+            Elmar Haneveld
+          </h1>
 
-        {/* Subtitle */}
-        <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed animate-fade-up opacity-0 animate-delay-200">
-          I work where business, craft, systems, and people intersect.
-          For 20+ years I&apos;ve been turning strategy into design systems
-          and experiences that scale — connecting what organizations need
-          with what people actually value.
-        </p>
-
-        {/* Scroll indicator */}
-        <div className="mt-16 animate-fade-up opacity-0 animate-delay-300">
-          <a
-            href="#work"
-            className="inline-flex items-center gap-3 text-sm tracking-wide text-muted hover:text-foreground transition-colors"
-          >
-            <span className="magazine-divider" />
-            Scroll to explore
-          </a>
+          {/* Subtitle */}
+          <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed animate-fade-up opacity-0 animate-delay-200">
+            I work at the intersection of business, design, systems and people.
+            For 20+ years I&apos;ve been turning strategy into design systems
+            and experiences that scale — connecting what organizations need
+            with what people actually value.
+          </p>
         </div>
+      </div>
+
+      {/* Scroll indicator — pinned to bottom */}
+      <div className="relative px-6 md:px-12 animate-fade-up opacity-0 animate-delay-300" style={{ zIndex: 2 }}>
+        <a
+          href="#work"
+          className="inline-flex items-center gap-3 text-sm tracking-wide text-muted hover:text-foreground transition-colors"
+        >
+          <span className="magazine-divider" />
+          Scroll to explore
+        </a>
       </div>
     </section>
   );

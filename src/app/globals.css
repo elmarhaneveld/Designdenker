@@ -10,6 +10,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  overflow-x: hidden;
 }
 
 /* Magazine-style typography */
@@ -61,11 +62,9 @@ html {
 @keyframes glowPulse {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    filter: hue-rotate(0deg);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    filter: hue-rotate(25deg);
+    transform: translate(-50%, -50%) scale(1.12);
   }
 }
 
