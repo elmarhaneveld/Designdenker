@@ -48,10 +48,35 @@ export default function Hero() {
     setMouse({ x: 0.5, y: 0.5 });
   }, []);
 
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const isTouchInteracting = useRef(false);
+
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      if (!e.touches[0]) return;
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
+      isTouchInteracting.current = false;
+    },
+    []
+  );
+
   const handleTouchMove = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
       const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect || !e.touches[0]) return;
+      if (!rect || !e.touches[0] || !touchStartRef.current) return;
+
+      // Only start tracking if mostly horizontal movement
+      if (!isTouchInteracting.current) {
+        const dx = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
+        const dy = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+        if (dy > dx) return; // Vertical scroll — don't interfere
+        if (dx < 10) return; // Not enough movement yet
+        isTouchInteracting.current = true;
+      }
+
       setMouse({
         x: (e.touches[0].clientX - rect.left) / rect.width,
         y: (e.touches[0].clientY - rect.top) / rect.height,
@@ -62,6 +87,8 @@ export default function Hero() {
   );
 
   const handleTouchEnd = useCallback(() => {
+    touchStartRef.current = null;
+    isTouchInteracting.current = false;
     setIsHovering(false);
     setMouse({ x: 0.5, y: 0.5 });
   }, []);
@@ -71,10 +98,11 @@ export default function Hero() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative min-h-[100vh] flex flex-col justify-between pt-16 md:pt-24 pb-16 md:pb-24"
-      style={{ cursor: isHovering ? "none" : "default" }}
+      className="relative min-h-[100vh] flex flex-col justify-between pt-16 md:pt-24 pb-16 md:pb-24 overflow-hidden"
+      style={{ cursor: isHovering ? "none" : "default", touchAction: "pan-y" }}
     >
       {/* Glow effect following mouse */}
       {hasMounted && (
