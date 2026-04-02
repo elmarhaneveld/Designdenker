@@ -1,62 +1,6 @@
-interface Role {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-}
+import content from "@/data/content.json";
 
-const roles: Role[] = [
-  {
-    company: "Air France-KLM",
-    role: "Design System Specialist",
-    period: "Current",
-    description:
-      "Leading design system work for one of Europe's largest airline groups.",
-  },
-  {
-    company: "Polestar",
-    role: "Design System Designer",
-    period: "Previous",
-    description:
-      "Part of the web design system team — aligning design feedback, implementing UX best practices, and developing reusable components based on strict brand guidelines.",
-  },
-  {
-    company: "TomTom",
-    role: "Art Director",
-    period: "Previous",
-    description:
-      "Designed the user interface for TomTom's fitness watch. Created meaningful experiences for athletes within extreme technical constraints.",
-  },
-  {
-    company: "E.ON Drive",
-    role: "UX/UI Designer",
-    period: "Previous",
-    description:
-      "Digital product design for E.ON's electric vehicle charging platform.",
-  },
-  {
-    company: "Centraal Beheer",
-    role: "Designer & Concept Developer",
-    period: "Previous",
-    description:
-      "Creative concept and digital design for one of the Netherlands' most well-known insurance brands.",
-  },
-];
-
-const skills = [
-  "Design Systems",
-  "Design Tokens",
-  "Art Direction",
-  "UI/UX Design",
-  "Brand Identity",
-  "Creative Concepts",
-  "Product Design",
-  "Figma",
-  "Prototyping",
-  "Front-end Awareness",
-  "Component Architecture",
-  "User Research",
-];
+const { experience } = content;
 
 export default function Experience() {
   return (
@@ -71,9 +15,9 @@ export default function Experience() {
             Experience
           </span>
           <h2 className="font-serif text-headline mt-4">
-            20+ years of
+            {experience.headline}
             <br />
-            digital craft
+            {experience.headlineSecondLine}
           </h2>
 
           {/* Skills */}
@@ -82,7 +26,7 @@ export default function Experience() {
               Expertise
             </span>
             <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
+              {experience.skills.map((skill) => (
                 <span
                   key={skill}
                   className="text-xs tracking-wide border border-border rounded-full px-3 py-1.5 text-muted"
@@ -97,7 +41,7 @@ export default function Experience() {
         {/* Right — Timeline */}
         <div className="md:col-span-7 md:col-start-6">
           <div className="space-y-0">
-            {roles.map((role) => (
+            {experience.roles.map((role) => (
               <div
                 key={role.company}
                 className="py-8 border-b border-border first:pt-0"

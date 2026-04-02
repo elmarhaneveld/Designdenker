@@ -1,3 +1,7 @@
+import content from "@/data/content.json";
+
+const { contact } = content;
+
 export default function Contact() {
   return (
     <section
@@ -11,13 +15,12 @@ export default function Contact() {
             Contact
           </span>
           <h2 className="font-serif text-headline mt-4">
-            Let&apos;s create
+            {contact.headline}
             <br />
-            <span className="italic">something great</span>
+            <span className="italic">{contact.headlineItalic}</span>
           </h2>
           <p className="text-muted mt-6 leading-relaxed max-w-md">
-            Available for design system consulting, art direction, and creative
-            collaboration. Based in the Netherlands, working globally.
+            {contact.description}
           </p>
         </div>
 
@@ -29,10 +32,10 @@ export default function Contact() {
               Email
             </span>
             <a
-              href="mailto:elmar@designdenker.nl"
+              href={`mailto:${contact.email}`}
               className="text-lg hover:text-muted transition-colors underline underline-offset-4"
             >
-              elmar@designdenker.nl
+              {contact.email}
             </a>
           </div>
 
@@ -41,7 +44,7 @@ export default function Contact() {
             <span className="text-xs tracking-[0.15em] uppercase text-muted block mb-2">
               Location
             </span>
-            <p>Amstelveen, Netherlands</p>
+            <p>{contact.location}</p>
           </div>
 
           {/* Social links */}
@@ -50,46 +53,17 @@ export default function Contact() {
               Connect
             </span>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="https://www.linkedin.com/in/elmar-haneveld/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-muted transition-colors underline underline-offset-4"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://www.instagram.com/designdenker/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-muted transition-colors underline underline-offset-4"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://dribbble.com/elmar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-muted transition-colors underline underline-offset-4"
-              >
-                Dribbble
-              </a>
-              <a
-                href="https://medium.com/@qrafts"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-muted transition-colors underline underline-offset-4"
-              >
-                Medium
-              </a>
-              <a
-                href="https://github.com/elmarhaneveld"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm hover:text-muted transition-colors underline underline-offset-4"
-              >
-                GitHub
-              </a>
+              {contact.social.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-muted transition-colors underline underline-offset-4"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
