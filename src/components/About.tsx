@@ -1,3 +1,15 @@
+import content from "@/data/content.json";
+
+const { about } = content;
+
+function renderBold(text: string) {
+  // Convert **text** to <strong> elements
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+}
+
 export default function About() {
   return (
     <section
@@ -11,42 +23,31 @@ export default function About() {
             About
           </span>
           <h2 className="font-serif text-headline mt-4">
-            Business, craft,
+            {about.headline}
             <br />
-            <span className="italic">systems &amp; people</span>
+            <span className="italic">{about.headlineItalic}</span>
           </h2>
         </div>
 
         {/* Right column */}
         <div className="md:col-span-7 md:col-start-6 space-y-8">
-          <p className="text-lg md:text-xl leading-relaxed">
-            Great design doesn&apos;t happen in isolation. For over 20 years,
-            I&apos;ve worked across four dimensions: understanding the
-            <strong> business</strong>, refining the <strong>craft</strong>,
-            scaling through <strong>systems</strong>, and always centering
-            the <strong>people</strong> who use what we make.
-          </p>
-
-          <p className="text-muted leading-relaxed">
-            As an art director and design system specialist from the Netherlands,
-            I bridge the gap between strategy and execution. I translate business
-            goals into design direction, build token-driven systems that scale
-            across teams, and keep the craft sharp — from concept to pixel.
-          </p>
-
-          <p className="text-muted leading-relaxed">
-            What sets my work apart is the ability to connect disciplines.
-            I speak the language of developers, understand the priorities of
-            stakeholders, and advocate for the end user. The best outcomes
-            happen when business, craft, systems, and people move together.
-          </p>
+          {about.paragraphs.map((paragraph, i) => (
+            <p
+              key={i}
+              className={
+                i === 0
+                  ? "text-lg md:text-xl leading-relaxed"
+                  : "text-muted leading-relaxed"
+              }
+            >
+              {renderBold(paragraph)}
+            </p>
+          ))}
 
           {/* Personal touch */}
           <div className="pt-8 border-t border-border">
             <p className="text-sm text-muted italic leading-relaxed">
-              When I&apos;m not designing, you&apos;ll find me doing CrossFit,
-              exploring existential philosophy, playing guitar, or hiking with
-              my family. I intentionally keep my phone on mute.
+              {about.personal}
             </p>
           </div>
         </div>

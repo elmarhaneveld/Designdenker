@@ -1,6 +1,10 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import content from "@/data/content.json";
+
+const { hero } = content;
+
 interface Line {
   label: string;
   anchor: { x: number; y: number };
@@ -206,20 +210,17 @@ export default function Hero() {
         <div className="w-full px-6 md:px-12 mx-auto" style={{ maxWidth: "1400px" }}>
           {/* Eyebrow */}
           <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 animate-fade-up opacity-0">
-            Art Director &amp; Design System Architect
+            {hero.eyebrow}
           </p>
 
           {/* Main headline — magazine style */}
           <h1 className="font-serif text-display animate-fade-up opacity-0 animate-delay-100">
-            Elmar Haneveld
+            {hero.headline}
           </h1>
 
           {/* Subtitle */}
           <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed animate-fade-up opacity-0 animate-delay-200">
-            I work at the intersection of business, design, systems and people.
-            For 20+ years I&apos;ve been turning strategy into design systems
-            and experiences that scale — connecting what organizations need
-            with what people actually value.
+            {hero.subtitle}
           </p>
         </div>
       </div>
