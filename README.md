@@ -1,5 +1,68 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Adding Project Photos
+
+Project photos are read from `src/data/content.json` and served from the `public` folder.
+
+1. Create a folder structure like:
+
+```bash
+public/projects/polestar/
+public/projects/tomtom/
+```
+
+2. Put your image files in those folders, for example:
+
+```bash
+public/projects/polestar/cover.jpg
+public/projects/polestar/gallery-01.jpg
+public/projects/polestar/gallery-02.jpg
+public/projects/polestar/gallery-03.jpg
+```
+
+3. `src/data/content.json` already includes paths for all projects. Use this file naming pattern in each folder:
+
+- `cover.jpg` (first image, also used for project card + project sheet hero)
+- `gallery-01.jpg`
+- `gallery-02.jpg`
+- `gallery-03.jpg` (only needed for projects with 4 images)
+
+4. Export image assets with these sizes:
+
+- **`cover.jpg` or any image with `"span": "full"`**: `2520x1080` px (aspect ratio `21:9`)
+- **regular gallery image (`"span"` omitted or `"half"`)**: `1600x1200` px (aspect ratio `4:3`)
+- **format**: JPG, quality around `80-85`, keep each file ideally below `500 KB` (up to `900 KB` for detailed hero images)
+
+5. Current project folders expected by `content.json`:
+
+- `public/projects/polestar/`
+- `public/projects/tomtom/`
+- `public/projects/air-france-klm/`
+- `public/projects/eon-drive/`
+- `public/projects/centraal-beheer/`
+- `public/projects/vrank/`
+- `public/projects/makuuchi/`
+- `public/projects/createnew/`
+
+6. Paths in `src/data/content.json` must start with `/`:
+
+```json
+{
+  "title": "Polestar",
+  "images": [
+    { "src": "/projects/polestar/cover.jpg", "caption": "Component library overview", "span": "full" },
+    { "src": "/projects/polestar/components.jpg", "caption": "Component documentation" },
+    { "src": "/projects/polestar/tokens.jpg", "caption": "Token architecture" }
+  ]
+}
+```
+
+How it appears on the site:
+- Project cards use the first non-empty `images[].src` as the card cover.
+- Project sheet hero uses the first non-empty `images[].src`.
+- Gallery tiles use each `images[].src`.
+- If a `src` is empty, the existing placeholder is shown.
+
 ## Getting Started
 
 First, run the development server:

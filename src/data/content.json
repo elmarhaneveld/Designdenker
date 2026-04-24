@@ -28,10 +28,10 @@
       "challenge": "Polestar's digital ecosystem was expanding rapidly across web, app, and internal tools — but the design language was fragmenting. Teams worked in silos, components were duplicated with inconsistencies, and there was no shared source of truth connecting design and development.",
       "solution": "I joined the design system team to create a unified, token-driven component library. Each component was built to strict brand standards while remaining flexible enough for diverse use cases. I established a feedback loop between designers and developers, ensuring every component was both pixel-perfect and technically sound.",
       "images": [
-        { "src": "", "caption": "Component library overview", "span": "full" },
-        { "src": "", "caption": "Token architecture" },
-        { "src": "", "caption": "Component documentation" },
-        { "src": "", "caption": "Design system in production", "span": "full" }
+        { "src": "/projects/polestar/cover.jpg", "caption": "Component library overview", "span": "full" },
+        { "src": "/projects/polestar/gallery-01.jpg", "caption": "Token architecture" },
+        { "src": "/projects/polestar/gallery-02.jpg", "caption": "Component documentation" },
+        { "src": "/projects/polestar/gallery-03.jpg", "caption": "Design system in production", "span": "full" }
       ]
     },
     {
@@ -45,9 +45,9 @@
       "challenge": "How do you design a compelling fitness experience on a screen that can only display 8 colors? The TomTom fitness watch had extreme technical limitations — a 3-bit display, minimal processing power, and interaction limited to a single button. Every pixel and every state had to be deliberate.",
       "solution": "I approached the constraints as a creative opportunity. By stripping the interface down to its essence, I created a visual language that was instantly readable at a glance — critical for athletes mid-workout. Bold, high-contrast layouts with purposeful use of the 8-color palette made the watch feel premium despite its technical limitations.",
       "images": [
-        { "src": "", "caption": "Watch face explorations", "span": "full" },
-        { "src": "", "caption": "8-color palette system" },
-        { "src": "", "caption": "Workout flow states" }
+        { "src": "/projects/tomtom/cover.jpg", "caption": "Watch face explorations", "span": "full" },
+        { "src": "/projects/tomtom/gallery-01.jpg", "caption": "8-color palette system" },
+        { "src": "/projects/tomtom/gallery-02.jpg", "caption": "Workout flow states" }
       ]
     },
     {
@@ -61,9 +61,9 @@
       "challenge": "Air France-KLM operates multiple brands across dozens of digital touchpoints — web, app, kiosks, and internal tools. The challenge was creating a design system flexible enough to serve both Air France and KLM's distinct brand identities while maintaining consistency and efficiency at scale.",
       "solution": "I worked on a multi-brand design system architecture using design tokens as the foundation. Brand-specific tokens allowed the same components to express different visual identities, while shared structural tokens ensured consistency in spacing, typography, and interaction patterns. The system dramatically reduced design debt and sped up delivery.",
       "images": [
-        { "src": "", "caption": "Multi-brand token architecture", "span": "full" },
-        { "src": "", "caption": "Shared component library" },
-        { "src": "", "caption": "Brand theming in action" }
+        { "src": "/projects/air-france-klm/cover.jpg", "caption": "Multi-brand token architecture", "span": "full" },
+        { "src": "/projects/air-france-klm/gallery-01.jpg", "caption": "Shared component library" },
+        { "src": "/projects/air-france-klm/gallery-02.jpg", "caption": "Brand theming in action" }
       ]
     },
     {
@@ -77,9 +77,9 @@
       "challenge": "Electric vehicle charging is still unfamiliar territory for most drivers. E.ON needed a digital experience that made finding, using, and paying for charging stations as simple as refueling — while handling complex scenarios like different connector types, pricing models, and charging speeds.",
       "solution": "I designed the end-to-end charging experience with a focus on reducing cognitive load. The interface surfaces only what's relevant at each step: nearby stations when searching, real-time availability when arriving, and clear progress when charging. A clean visual hierarchy guides users through what could be an overwhelming process.",
       "images": [
-        { "src": "", "caption": "Charging journey flow", "span": "full" },
-        { "src": "", "caption": "Station finder interface" },
-        { "src": "", "caption": "Active charging screen" }
+        { "src": "/projects/eon-drive/cover.jpg", "caption": "Charging journey flow", "span": "full" },
+        { "src": "/projects/eon-drive/gallery-01.jpg", "caption": "Station finder interface" },
+        { "src": "/projects/eon-drive/gallery-02.jpg", "caption": "Active charging screen" }
       ]
     },
     {
@@ -93,9 +93,9 @@
       "challenge": "Centraal Beheer is famous for its \"Even Apeldoorn bellen\" campaigns — but translating that playful, human brand voice into digital experiences was the real challenge. Insurance is inherently complex and often perceived as boring. The digital presence needed to feel as warm and approachable as the brand's iconic advertising.",
       "solution": "I developed creative concepts that brought Centraal Beheer's human touch into every digital interaction. By focusing on storytelling, clear language, and moments of delight, we transformed insurance interfaces from dry form-filling into experiences that felt genuinely helpful. The design language balanced professionalism with the brand's signature warmth.",
       "images": [
-        { "src": "", "caption": "Creative concept direction", "span": "full" },
-        { "src": "", "caption": "Digital experience design" },
-        { "src": "", "caption": "Brand language in digital" }
+        { "src": "/projects/centraal-beheer/cover.jpg", "caption": "Creative concept direction", "span": "full" },
+        { "src": "/projects/centraal-beheer/gallery-01.jpg", "caption": "Digital experience design" },
+        { "src": "/projects/centraal-beheer/gallery-02.jpg", "caption": "Brand language in digital" }
       ]
     }
   ],
@@ -112,10 +112,10 @@
       "challenge": "In an age of surface-level digital interactions, real conversations are becoming rare. People want deeper connections but don't always know how to start. The challenge was creating something that felt natural — not forced or gamified — that genuinely brings people closer through conversation.",
       "solution": "Vrank is a card-based conversation app with carefully curated questions designed to go beyond small talk. I designed the entire experience from brand identity to interaction design, focusing on tactile, satisfying gestures and a warm visual language. The app creates a ritual around conversation — making it feel like opening a beautiful deck of cards, not using another app.",
       "images": [
-        { "src": "", "caption": "Card interaction design", "span": "full" },
-        { "src": "", "caption": "Brand identity system" },
-        { "src": "", "caption": "App screens" },
-        { "src": "", "caption": "Micro-interactions and gestures", "span": "full" }
+        { "src": "/projects/vrank/cover.jpg", "caption": "Card interaction design", "span": "full" },
+        { "src": "/projects/vrank/gallery-01.jpg", "caption": "Brand identity system" },
+        { "src": "/projects/vrank/gallery-02.jpg", "caption": "App screens" },
+        { "src": "/projects/vrank/gallery-03.jpg", "caption": "Micro-interactions and gestures", "span": "full" }
       ]
     },
     {
@@ -129,9 +129,9 @@
       "challenge": "Sumo wrestling has a rich 2000-year history, but its digital presence is fragmented and often inaccessible to international fans. Tournament data, wrestler profiles, and historical records exist across scattered Japanese websites with no unified, modern experience.",
       "solution": "I designed and built Makuuchi as a love letter to sumo — combining deep respect for the sport's tradition with modern interface design. Rich data visualizations bring tournament brackets and wrestler statistics to life, while the visual design references traditional Japanese aesthetics without becoming kitsch. Every detail, from typography to data presentation, serves both hardcore fans and newcomers.",
       "images": [
-        { "src": "", "caption": "Tournament overview", "span": "full" },
-        { "src": "", "caption": "Wrestler profile cards" },
-        { "src": "", "caption": "Match data visualization" }
+        { "src": "/projects/makuuchi/cover.jpg", "caption": "Tournament overview", "span": "full" },
+        { "src": "/projects/makuuchi/gallery-01.jpg", "caption": "Wrestler profile cards" },
+        { "src": "/projects/makuuchi/gallery-02.jpg", "caption": "Match data visualization" }
       ]
     },
     {
@@ -145,9 +145,9 @@
       "challenge": "The gap between having a creative idea and actually bringing it to life is where most projects die. CreateNew was born from the belief that the tools, processes, and mindset for turning ideas into reality shouldn't be gatekept — they should be accessible and enjoyable.",
       "solution": "I developed the brand identity and creative direction for CreateNew — a venture focused on making the creative process more accessible. The brand language is deliberately open-ended and inviting, using generative design elements that change and evolve, reflecting the nature of creativity itself. From logo system to digital presence, every touchpoint embodies the idea that everyone can create something new.",
       "images": [
-        { "src": "", "caption": "Generative brand identity", "span": "full" },
-        { "src": "", "caption": "Visual identity system" },
-        { "src": "", "caption": "Digital presence" }
+        { "src": "/projects/createnew/cover.jpg", "caption": "Generative brand identity", "span": "full" },
+        { "src": "/projects/createnew/gallery-01.jpg", "caption": "Visual identity system" },
+        { "src": "/projects/createnew/gallery-02.jpg", "caption": "Digital presence" }
       ]
     }
   ],

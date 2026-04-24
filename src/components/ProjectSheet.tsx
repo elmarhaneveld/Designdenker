@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
 
 export interface ProjectDetail {
   title: string;
@@ -22,6 +23,7 @@ interface ProjectSheetProps {
 
 export default function ProjectSheet({ project, onClose }: ProjectSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
+  const heroImage = project?.images.find((image) => image.src.trim().length > 0)?.src;
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -98,8 +100,18 @@ export default function ProjectSheet({ project, onClose }: ProjectSheetProps) {
             </div>
 
             {/* Hero image placeholder */}
-            <div className={`${project.color} rounded-lg aspect-[21/9] flex items-center justify-center mb-16`}>
-              <span className="font-serif text-headline text-foreground/10">{project.title}</span>
+            <div className={`${project.color} rounded-lg aspect-[21/9] flex items-center justify-center mb-16 overflow-hidden relative`}>
+              {heroImage ? (
+                <Image
+                  src={heroImage}
+                  alt={`${project.title} hero image`}
+                  fill
+                  sizes="(min-width: 768px) 1200px, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <span className="font-serif text-headline text-foreground/10">{project.title}</span>
+              )}
             </div>
 
             {/* Magazine-style two column layout */}
@@ -139,8 +151,18 @@ export default function ProjectSheet({ project, onClose }: ProjectSheetProps) {
                 >
                   <div className={`${project.color} rounded-lg overflow-hidden ${
                     img.span === "full" ? "aspect-[21/9]" : "aspect-[4/3]"
-                  } flex items-center justify-center`}>
-                    <span className="text-sm text-foreground/20 italic">{img.caption}</span>
+                  } flex items-center justify-center relative`}>
+                    {img.src.trim().length > 0 ? (
+                      <Image
+                        src={img.src}
+                        alt={`${project.title} - ${img.caption}`}
+                        fill
+                        sizes={img.span === "full" ? "(min-width: 768px) 100vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="text-sm text-foreground/20 italic">{img.caption}</span>
+                    )}
                   </div>
                   <p className="text-xs text-muted mt-2 italic">{img.caption}</p>
                 </div>

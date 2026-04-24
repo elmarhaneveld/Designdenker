@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import ProjectSheet from "./ProjectSheet";
 import type { ProjectDetail } from "./ProjectSheet";
 import content from "@/data/content.json";
@@ -15,6 +16,8 @@ function ProjectCard({
   project: ProjectDetail;
   onClick: () => void;
 }) {
+  const coverImage = project.images.find((image) => image.src.trim().length > 0)?.src;
+
   return (
     <article
       className={`project-card group cursor-pointer ${
@@ -28,11 +31,21 @@ function ProjectCard({
           project.span === "full" ? "md:aspect-[21/9]" : ""
         } relative flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.01]`}
       >
-        <div className="text-center p-12">
-          <span className="font-serif text-headline text-foreground/20">
-            {project.title}
-          </span>
-        </div>
+        {coverImage ? (
+          <Image
+            src={coverImage}
+            alt={`${project.title} cover image`}
+            fill
+            sizes={project.span === "full" ? "(min-width: 768px) 100vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+            className="object-cover"
+          />
+        ) : (
+          <div className="text-center p-12">
+            <span className="font-serif text-headline text-foreground/20">
+              {project.title}
+            </span>
+          </div>
+        )}
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
