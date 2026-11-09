@@ -15,7 +15,7 @@ interface Line {
 const lines: Line[] = [
   { label: "Business", anchor: { x: 0.2, y: 0 }, color: "#4e7a4a" }, // deep sage green — 5.1:1
   { label: "Design", anchor: { x: 0.8, y: 0 }, color: "#3d6878" },   // deep slate blue — 5.4:1
-  { label: "Systems", anchor: { x: 1, y: 0.9 }, color: "#7a5c4f" }, // deep clay — 5.0:1
+  { label: "Development", anchor: { x: 1, y: 0.9 }, color: "#7a5c4f" }, // deep clay — 5.0:1
   { label: "People", anchor: { x: 0.6, y: 1 }, color: "#7a4460" },   // deep mauve — 5.2:1
 ];
 
@@ -214,7 +214,7 @@ export default function Hero() {
           </h1>
 
           {/* Roles */}
-          <h2 className="mt-4 font-serif text-subhead md:text-headline animate-fade-up opacity-0 animate-delay-100">
+          <h2 className="mt-4 font-serif text-[clamp(1.5rem,3.5vw,3rem)] leading-[1.1] tracking-[-0.01em] animate-fade-up opacity-0 animate-delay-100">
             {hero.roles.map((role) => (
               <span key={role} className="block">
                 {role}
