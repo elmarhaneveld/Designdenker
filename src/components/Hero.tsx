@@ -105,7 +105,7 @@ export default function Hero() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative min-h-[100vh] flex flex-col justify-between pt-16 md:pt-24 pb-16 md:pb-24 overflow-hidden"
+      className="relative min-h-[100vh] flex flex-col justify-between py-16 md:py-24 overflow-hidden"
       style={{ cursor: isHovering ? "none" : "default", touchAction: "pan-y" }}
     >
       {/* Glow effect following mouse */}
@@ -208,32 +208,69 @@ export default function Hero() {
       {/* Centered content */}
       <div className="relative flex-1 flex items-center" style={{ zIndex: 2 }}>
         <div className="w-full px-6 md:px-12 mx-auto" style={{ maxWidth: "1400px" }}>
-          {/* Eyebrow */}
-          <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 animate-fade-up opacity-0">
-            {hero.eyebrow}
-          </p>
-
-          {/* Main headline — magazine style */}
-          <h1 className="font-serif text-display animate-fade-up opacity-0 animate-delay-100">
-            {hero.headline}
+          {/* Name — magazine style */}
+          <h1 className="font-serif text-display animate-fade-up opacity-0">
+            {hero.name}
           </h1>
 
-          {/* Subtitle */}
-          <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed animate-fade-up opacity-0 animate-delay-200">
-            {hero.subtitle}
-          </p>
-        </div>
-      </div>
+          {/* Roles */}
+          <h2 className="mt-4 font-serif text-subhead md:text-headline animate-fade-up opacity-0 animate-delay-100">
+            {hero.roles.map((role) => (
+              <span key={role} className="block">
+                {role}
+              </span>
+            ))}
+          </h2>
 
-      {/* Scroll indicator — pinned to bottom */}
-      <div className="relative px-6 md:px-12 animate-fade-up opacity-0 animate-delay-300" style={{ zIndex: 2 }}>
-        <a
-          href="#work"
-          className="inline-flex items-center gap-3 text-sm tracking-wide text-muted hover:text-foreground transition-colors"
-        >
-          <span className="magazine-divider" />
-          Scroll to explore
-        </a>
+          {/* Bio */}
+          <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl leading-relaxed animate-fade-up opacity-0 animate-delay-200">
+            {hero.bio}
+          </p>
+          <a
+            href={hero.more.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block text-lg md:text-xl underline underline-offset-4 hover:text-muted transition-colors animate-fade-up opacity-0 animate-delay-200"
+          >
+            {hero.more.label}
+          </a>
+
+          {/* At / About lists */}
+          <div className="mt-16 md:mt-24 flex gap-12 md:gap-24 animate-fade-up opacity-0 animate-delay-300">
+            <div>
+              <h3 className="font-semibold text-lg md:text-xl">{hero.at.title}</h3>
+              <ul className="mt-4 space-y-2 text-lg md:text-xl">
+                {hero.at.items.map((item) => (
+                  <li key={item.label} className="relative inline-block w-full">
+                    <span>{item.label}</span>
+                    {"badge" in item && item.badge && (
+                      <span className="ml-1 align-super rounded bg-[#b9a02a] px-1.5 py-0.5 text-[11px] leading-none text-white">
+                        {item.badge}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg md:text-xl">{hero.about.title}</h3>
+              <ul className="mt-4 space-y-2 text-lg md:text-xl">
+                {hero.about.items.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.url}
+                      target={item.url.startsWith("mailto:") ? undefined : "_blank"}
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4 hover:text-muted transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

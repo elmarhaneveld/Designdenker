@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Elmar Haneveld — Design System Specialist & Art Director",
   description:
-    "Independent design thinker bridging technology and people. 20+ years of experience in design systems, art direction, and UI/UX design.",
+    "I help people create digital products, at scale. From strategy and art direction to user-friendly systems at the intersection of brand, design and development.",
   openGraph: {
     title: "Elmar Haneveld — Designdenker",
     description:
