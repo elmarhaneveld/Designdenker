@@ -226,14 +226,6 @@ export default function Hero() {
           <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl leading-relaxed animate-fade-up opacity-0 animate-delay-200">
             {hero.bio}
           </p>
-          <a
-            href={hero.more.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-block text-lg md:text-xl underline underline-offset-4 hover:text-muted transition-colors animate-fade-up opacity-0 animate-delay-200"
-          >
-            {hero.more.label}
-          </a>
 
           {/* At / About lists */}
           <div className="mt-16 md:mt-24 flex gap-12 md:gap-24 animate-fade-up opacity-0 animate-delay-300">

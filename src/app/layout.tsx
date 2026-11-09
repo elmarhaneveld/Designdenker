@@ -15,13 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Elmar Haneveld — Design System Specialist & Art Director",
+  title: "Elmar Haneveld — Design System Lead & Art Director",
   description:
-    "I help people create digital products, at scale. From strategy and art direction to user-friendly systems at the intersection of brand, design and development.",
+    "I help people create digital products, at scale. From strategy and art direction to user-friendly systems at the intersection of design, business, system and people.",
   openGraph: {
     title: "Elmar Haneveld — Designdenker",
     description:
-      "Design System Specialist & Art Director. Working with brands like Polestar, TomTom, Air France KLM, and more.",
+      "Design System Lead & Art Director. Working with brands like Polestar, TomTom, Air France KLM, and more.",
     type: "website",
   },
 };

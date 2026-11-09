@@ -1,12 +1,8 @@
 {
   "hero": {
     "name": "Elmar Haneveld",
-    "roles": ["Design System Specialist", "Art Director"],
-    "bio": "I help people create digital products, at scale. From strategy and art direction to user-friendly systems at the intersection of brand, design and development.",
-    "more": {
-      "label": "More",
-      "url": "https://elmarhaneveld.com/docs/Introduction-ElmarHaneveld-website.pdf"
-    },
+    "roles": ["Design System Lead", "Art Director"],
+    "bio": "I help people create digital products, at scale. From strategy and art direction to user-friendly systems at the intersection of design, business, system and people.",
     "at": {
       "title": "At",
       "items": [
