@@ -228,12 +228,12 @@ export default function Hero() {
           </p>
 
           {/* At / About lists */}
-          <div className="mt-16 md:mt-24 flex gap-12 md:gap-24 animate-fade-up opacity-0 animate-delay-300">
+          <div className="mt-16 md:mt-24 flex items-start gap-8 md:gap-12 animate-fade-up opacity-0 animate-delay-300">
             <div>
               <h3 className="font-semibold text-lg md:text-xl">{hero.at.title}</h3>
               <ul className="mt-4 space-y-2 text-lg md:text-xl">
                 {hero.at.items.map((item) => (
-                  <li key={item.label} className="relative inline-block w-full">
+                  <li key={item.label} className="whitespace-nowrap">
                     <span>{item.label}</span>
                     {"badge" in item && item.badge && (
                       <span className="ml-1 align-super rounded bg-[#b9a02a] px-1.5 py-0.5 text-[11px] leading-none text-white">
